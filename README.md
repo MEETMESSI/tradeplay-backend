@@ -1,0 +1,100 @@
+# Tradeplay Backend
+
+Tradeplay Backend is a FastAPI-powered REST API for a paper trading platform focused on the US stock market.
+
+## Features
+
+# Tradeplay Backend
+
+Tradeplay Backend is a FastAPI-powered REST API for a paper trading platform focused on the US stock market.
+
+## 🚀 Features
+
+- JWT Authentication
+- User Registration & Login
+- Paper Buy & Sell Trading
+- Portfolio Management
+- Watchlists
+- Order History
+- Portfolio Analytics
+- Live Market Data
+- Historical Price API
+
+## 🛠 Tech Stack
+
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- JWT Authentication
+- Financial Modeling Prep API
+- Python
+
+## 📂 Project Structure
+
+```
+app/
+├── core/
+├── db/
+├── models/
+├── routes/
+├── schemas/
+├── services/
+└── main.py
+```
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/MEETMESSI/tradeplay-backend.git
+cd tradeplay-backend
+```
+
+Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate it
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Create a `.env` file
+
+```env
+DATABASE_URL=your_database_url
+FMP_API_KEY=your_api_key
+JWT_SECRET=your_secret_key
+```
+
+Run the server
+
+```bash
+uvicorn app.main:app --reload
+```
+
+## 📌 Roadmap
+
+- [ ] Limit Orders
+- [ ] Stop Loss
+- [ ] Take Profit
+- [ ] AI Portfolio Insights
+- [ ] Options Paper Trading
+- [ ] WebSockets
+- [ ] Backtesting Engine
+
+## 📄 License
+
+MIT License
