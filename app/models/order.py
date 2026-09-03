@@ -12,9 +12,9 @@ from datetime import datetime
 from app.db.database import Base
 
 
-class Trade(Base):
+class Order(Base):
 
-    __tablename__ = "trades"
+    __tablename__ = "orders"
 
     id = Column(
         Integer,
@@ -25,41 +25,63 @@ class Trade(Base):
     user_id = Column(
         Integer,
         ForeignKey("users.id"),
+        nullable=False,
     )
 
     symbol = Column(
         String,
+        nullable=False,
+        index=True,
     )
 
     quantity = Column(
         Float,
-    )
-
-    price = Column(
-        Float,
+        nullable=False,
     )
 
     side = Column(
         String,
+        nullable=False,
     )
 
     order_type = Column(
         String,
-        nullable=True,
+        nullable=False,
         default="MARKET",
     )
 
-    avg_cost = Column(
+    limit_price = Column(
         Float,
         nullable=True,
     )
 
-    realized_pnl = Column(
+    stop_price = Column(
         Float,
-        default=0,
+        nullable=True,
+    )
+
+    status = Column(
+        String,
+        nullable=False,
+        default="PENDING",
+    )
+
+    filled_price = Column(
+        Float,
+        nullable=True,
     )
 
     created_at = Column(
         DateTime,
         default=datetime.utcnow,
+    )
+
+    filled_at = Column(
+        DateTime,
+        nullable=True,
+    )
+
+    cancelled_at = Column(
+        DateTime,
+        nullable=True,
     )

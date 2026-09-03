@@ -1,10 +1,10 @@
 from sqlalchemy import (
     Column,
     Integer,
-    Float,
     String,
-    ForeignKey,
+    Boolean,
     DateTime,
+    ForeignKey,
 )
 
 from datetime import datetime
@@ -12,9 +12,8 @@ from datetime import datetime
 from app.db.database import Base
 
 
-class Trade(Base):
-
-    __tablename__ = "trades"
+class RefreshToken(Base):
+    __tablename__ = "refresh_tokens"
 
     id = Column(
         Integer,
@@ -25,41 +24,31 @@ class Trade(Base):
     user_id = Column(
         Integer,
         ForeignKey("users.id"),
+        nullable=False,
     )
 
-    symbol = Column(
+    token = Column(
         String,
+        nullable=False,
+        unique=True,
     )
 
-    quantity = Column(
-        Float,
-    )
-
-    price = Column(
-        Float,
-    )
-
-    side = Column(
+    device_name = Column(
         String,
+        default="Unknown Device",
     )
 
-    order_type = Column(
-        String,
-        nullable=True,
-        default="MARKET",
-    )
-
-    avg_cost = Column(
-        Float,
-        nullable=True,
-    )
-
-    realized_pnl = Column(
-        Float,
-        default=0,
+    is_revoked = Column(
+        Boolean,
+        default=False,
     )
 
     created_at = Column(
         DateTime,
         default=datetime.utcnow,
+    )
+
+    expires_at = Column(
+        DateTime,
+        nullable=False,
     )
