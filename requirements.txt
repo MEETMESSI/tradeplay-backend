@@ -8,4 +8,4 @@ python-multipart==0.0.27
 requests==2.33.1
 resend==2.36.0
 yfinance==1.3.0
-passlib[bcrypt]passlib[bcrypt]
+passlib[bcrypt]
